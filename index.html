@@ -5,31 +5,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="index.css">
-
-    <title>Home page</title>
-    
+    <link rel="stylesheet" type="text/css" href="main_menu.css">
+    <title>Main menu</title>
 </head>
 
 <body>
     <h1>Welcome to Travel Management Website</h1>
-    <div id="login" class="home">
-        <h2>Login Window</h2>
-        <div id="user">
-            <label for="user_name" id="l1">User name</label>
-            <input type="text" id="user_name" class="in" placeholder="Enter user name" required>
-        </div>
-        <div id="pass">
-            <label for="pass_in" id="l2">Password</label>
-            <input type="password" id="pass_in" class="in" placeholder="Enter password" required>
-        </div>
+    <div id="login" class="main_menu">
 
         <div id="btn">
-            <button id="log_btn" class="btn">Login</button>
+            <button  style="font-size: larger; margin: 1vw; padding: 5px;" id="login_btn" class="btn">Login</button>
+            <script type="text/javascript">
+                document.getElementById("log_btn").onclick = function () {
+                    location.href = "login.html";
+                };
+            </script>
+
+            <button  style="font-size: larger; margin: 1vw; padding: 5px;" id="vihicle_btn" class="btn">vihicle information</button>
+            <script type="text/javascript">
+                document.getElementById("vihicle_btn").onclick = function () {
+                    location.href = "vihicle.html";
+                };
+            </script>
+
+            <button   style="font-size: larger; margin: 1vw; padding: 5px;" id="route_btn" class="btn">route information</button>
+            <script type="text/javascript">
+                document.getElementById("route_btn").onclick = function () {
+                    location.href = "route.html";
+                };
+            </script>
+            <button   style="font-size: larger; margin: 1vw; padding: 5px;" id="booking_btn" class="btn">booking your journy</button>
+            <script type="text/javascript">
+                document.getElementById("booking_btn").onclick = function () {
+                    location.href = "booking.html";
+                };
+            </script>
+
+
+
         </div>
 
-        <!-- <input type="color" name="color" id="color"> -->
     </div>
+
 </body>
 
 </html>
