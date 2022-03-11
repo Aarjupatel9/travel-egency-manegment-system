@@ -1,5 +1,5 @@
 body {
-  background: url("bus1.jpg");
+  background: url("../image/bus1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

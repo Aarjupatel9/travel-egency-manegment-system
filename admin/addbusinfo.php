@@ -1,15 +1,15 @@
 <?php
 
-// echo "enter in php<br>";
+echo "enter in php<br>";
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['bus_num']) && isset($_POST['capacity'])) {
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
+    $busnum = $_POST['bus_num'];
+    $cap = $_POST['capacity'];
+    $ac = $_POST['ac'];
+    $sleeper = $_POST['sleeper'];
 
-    $crp = crypt($password, "st");
+    // $crp = crypt($password, "st");
     // echo $crp;
     //echo $username;  // +  " " + $password + " " + $ema + " " + $phone + "<br>";
 
@@ -23,11 +23,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if ($conn->connect_error) {
         die('Could not connect to the database.');
     } else {
-        $Select = "SELECT email FROM user_login_info WHERE email = ? LIMIT 1";
-        $Insert = "INSERT INTO user_login_info(username, password, email, number) values(?, ?, ?, ?)";
+        $Select = "SELECT bus_number FROM bus_info WHERE bus_number = ? LIMIT 1";
+        $Insert = "INSERT INTO bus_info(bus_number, capacity, ac,sleeper) values(?, ?, ?, ?)";
 
         $stmt = $conn->prepare($Select);
-        $stmt->bind_param("s", $email);
+        $stmt->bind_param("s", $busnum);
         $stmt->execute();
         $stmt->bind_result($resultEmail);
         $stmt->store_result();
@@ -38,20 +38,18 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $stmt->close();
 
             $stmt = $conn->prepare($Insert);
-            $stmt->bind_param("sssi", $username, $password, $email, $phone);
+            $stmt->bind_param("sssi", $busnum, $cap, $ac, $sleeper);
             if ($stmt->execute()) {
                 echo "New record inserted sucessfully.";
             } else {
+
                 echo $stmt->error;
+
             }
         } else {
-            echo "Someone already registers using this email.";
-            // include_once('\bt/register.html');
-            
-            // header('register.html');
-            
-            
+            echo "already one This bus is regisrterd....";
         }
+
         $stmt->close();
         $conn->close();
     }
