@@ -38,13 +38,12 @@ if (isset($_POST['bus_num']) && isset($_POST['capacity'])) {
             $stmt->close();
 
             $stmt = $conn->prepare($Insert);
-            $stmt->bind_param("sssi", $busnum, $cap, $ac, $sleeper);
+            $stmt->bind_param("ssss", $busnum, $cap, $ac, $sleeper);
             if ($stmt->execute()) {
                 echo "New record inserted sucessfully.";
             } else {
 
                 echo $stmt->error;
-
             }
         } else {
             echo "already one This bus is regisrterd....";
