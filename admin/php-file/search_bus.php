@@ -1,6 +1,6 @@
 <?php
 //config file
-$ini = parse_ini_file('../conf/config.ini');
+$ini = parse_ini_file('../../conf/config.ini');
 
 //data from html page
 $s_point = $_GET["s_point"];

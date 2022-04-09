@@ -1,52 +1,38 @@
 <?php
 
-// use LDAP\Result;
+$ini = parse_ini_file('../conf/config.ini');
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
-
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // echo $email .$password . "<br>";
-
-    $host = "localhost";
-    $dbUsername = "root";
-    $dbPassword = "";
-    $dbName = "travel_agency";
-
-    $conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
-
-    if ($conn->connect_error) {
-        die('Could not connect to the database.');
-    } else {
+// //data from html page
+// $str_json = file_get_contents('php://input');
+// $text_data = json_decode($str_json);
+// $user_email = $text_data->{'user_email'};
+// $pass = $text_data->{'pass'};
 
 
-        $Select = "SELECT password FROM admin_info WHERE email = '$email' ";
-        $result = $conn->query($Select);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                //  echo "id: " . $row["password"] . '<br>';
-                if ($password == $row["password"]) {
-                    include '../admin/admin.html';
-                
-                } else {
-                    echo "Password is wrong...";
-                }
-            }
-        } else {
-            echo "There is no account with this Email.. please register with the email..Contact Administrater... Thank you ";
-        }
+$user_email = $_POST['user_email'];
+$pass = $_POST['pass'];
 
-        $conn->close();
-    }
+$conn = new mysqli($ini['host'], $ini['dbUsername'], $ini['dbPassword'], $ini['dbName']);
 
 
-    
-
+if ($conn->connect_error) {
+    die('Could not connect to the database.');
 } else {
-    echo "All field are required.";
-    die();
+    $Select = "SELECT password FROM admin_info WHERE email = '$user_email' ";
+    $result = $conn->query($Select);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+
+            if ($pass == $row["password"]) {
+                $conn->close();
+                include '../admin/admin.html';
+            } else {
+
+                echo "password wrong.....";
+            }
+        }
+    } else {
+        echo  "user is not exits";
+    }
+    $conn->close();
 }
-// } else {
-//     echo "Submit button is not set";
-// }

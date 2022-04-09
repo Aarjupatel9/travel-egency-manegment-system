@@ -1,16 +1,17 @@
 <?php
+$ini = parse_ini_file('../../conf/config.ini');
 
-//config file
-$ini = parse_ini_file('../conf/config.ini');
+$json_data = file_get_contents('php://input');
+
 
 //data from html page
 $str_json = file_get_contents('php://input');
 $text_data = json_decode($str_json);
 
-$email = $text_data->{'user_email'};
-$password = $text_data->{'pass'};
-$username = $text_data->{'user_name'};
-$phone = $text_data->{'p_number'};
+$bus_number = $text_data->{'bus_number'};
+$starting_point = $text_data->{'starting_point'};
+$destination = $text_data->{'destination'};
+$departure_time = $text_data->{'departure_time'};
 
 
 $conn = new mysqli($ini['host'], $ini['dbUsername'], $ini['dbPassword'], $ini['dbName']);
@@ -18,11 +19,13 @@ $conn = new mysqli($ini['host'], $ini['dbUsername'], $ini['dbPassword'], $ini['d
 if ($conn->connect_error) {
     die('Could not connect to the database.');
 } else {
-    $Select = "SELECT email FROM user_login_info WHERE email = ? LIMIT 1";
-    $Insert = "INSERT INTO user_login_info(username, password, email, number) values(?, ?, ?, ?)";
+
+
+    $Select = "SELECT bus_number FROM bus_info WHERE bus_number = ? LIMIT 1";
+    $Insert = "INSERT INTO bus_info(bus_number, capacity, ac,sleeper, bus_name) values(?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($Select);
-    $stmt->bind_param("s", $email);
+    $stmt->bind_param("s", $bus_number);
     $stmt->execute();
     $stmt->bind_result($resultEmail);
     $stmt->store_result();
@@ -33,15 +36,18 @@ if ($conn->connect_error) {
         $stmt->close();
 
         $stmt = $conn->prepare($Insert);
-        $stmt->bind_param("sssi", $username, $password, $email, $phone);
+        $stmt->bind_param("sssss", $bus_number, $capacity, $ac, $sleeper,$bus_name);
         if ($stmt->execute()) {
-            echo "New record inserted sucessfully";
+            echo "1";
         } else {
-            echo $stmt->error;
+
+            //echo $stmt->error;
         }
     } else {
+        //alresdy this bus is exits
         echo "0";
     }
+
     $stmt->close();
     $conn->close();
 }

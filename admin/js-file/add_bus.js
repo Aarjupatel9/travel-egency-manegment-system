@@ -24,14 +24,6 @@ function add_bus() {
     return;
   }
 
-  // const data = {
-  //   bus_name: bus_name,
-  //   bus_number: bus_num,
-  //   capacity: capacity,
-  //   ac: ac,
-  //   sleeper: sleeper,
-  // };
-
   const text =
     '{"bus_name": " ' +
     bus_name +
@@ -50,29 +42,23 @@ function add_bus() {
   console.log(str_json);
 
   request = new XMLHttpRequest();
-  request.open("POST", "addbus.php");
-  
+  request.open("POST", "../php-file/addbus.php");
+
   request.setRequestHeader("Content-type", "application/json");
   request.onload = function () {
-    var jsvar = this.response;
-    console.log(jsvar);
-
-    if (jsvar == "1")
+    var res = this.response;
+    if (res == "1") {
+      window.alert("Bus info is added successfullly..");
+    }
+    else if (res == "0")
     {
-      window.alert("Bus info is added successfullly..")
-      }
-    xjsvar = JSON.stringify(jsvar);
-    console.log(xjsvar);
+      window.alert("already this bus is exits");
+    }
+    else {
+      console.log(res);
+    }
+    
   };
-  request.send(str_json);
+  request.send(text);
 
-
-    //  $.ajax({
-    //    type: "POST", //type of method
-    //    url: "profile.php", //your page
-    //    data: { bus_name : bus_name, bus_number : bus_num, capacity : capacity, ac : ac, sleeper : sleeper }, // passing the values
-    //    success: function (res) {
-    //      //do what you want here...
-    //    },
-    //  });
 }

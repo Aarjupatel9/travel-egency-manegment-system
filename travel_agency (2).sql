@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2022 at 04:28 AM
+-- Generation Time: Apr 09, 2022 at 12:10 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -65,7 +65,8 @@ INSERT INTO `bus_info` (`bus_number`, `capacity`, `ac`, `sleeper`, `bus_name`) V
 ('gj_1_an_1236', 50, 'y', 'y', 'eagle'),
 ('gj_1_an_1237', 50, 'y', 'y', 'dwarka'),
 ('gj_10_as_2223', 56, 'y', 'y', 'shital'),
-('gj_1_an_8877', 60, 'y', 'Y', 'patel');
+('gj_1_an_8877', 60, 'y', 'Y', 'patel'),
+(' gj_1_as_1223 ', 45, 'y', 'y', ' sonal ');
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,52 @@ INSERT INTO `ticket_7_4_2022_gj_10_as_1112` (`sit_number`, `user_email`) VALUES
 (7, 'xyz@gmail.com'),
 (8, 'xyz@gmail.com'),
 (9, 'xyz@gmail.com'),
-(10, 'xyz@gmail.com');
+(10, 'xyz@gmail.com'),
+(11, 'xyz@gmail.com'),
+(12, 'xyz@gmail.com'),
+(13, 'xyz@gmail.com'),
+(14, 'xyz@gmail.com'),
+(15, 'xyz@gmail.com'),
+(16, 'xyz@gmail.com'),
+(17, 'xyz@gmail.com'),
+(18, 'xyz@gmail.com'),
+(19, 'xyz@gmail.com'),
+(20, 'xyz@gmail.com'),
+(21, 'xyz@gmail.com'),
+(22, 'xyz@gmail.com'),
+(23, 'xyz@gmail.com'),
+(24, 'xyz@gmail.com'),
+(25, 'xyz@gmail.com'),
+(26, 'xyz@gmail.com'),
+(27, 'xyz@gmail.com'),
+(28, 'xyz@gmail.com'),
+(29, 'xyz@gmail.com'),
+(30, 'xyz@gmail.com'),
+(31, 'xyz@gmail.com'),
+(32, 'xyz@gmail.com'),
+(33, 'xyz@gmail.com'),
+(34, 'xyz@gmail.com'),
+(35, 'xyz@gmail.com'),
+(36, 'xyz@gmail.com'),
+(37, 'xyz@gmail.com'),
+(38, 'xyz@gmail.com'),
+(39, 'xyz@gmail.com'),
+(40, 'xyz@gmail.com'),
+(41, 'xyz@gmail.com'),
+(42, 'xyz@gmail.com'),
+(43, 'xyz@gmail.com'),
+(44, 'xyz@gmail.com'),
+(45, 'xyz@gmail.com'),
+(46, 'xyz@gmail.com'),
+(47, 'xyz@gmail.com'),
+(48, 'xyz@gmail.com'),
+(49, 'xyz@gmail.com'),
+(50, 'xyz@gmail.com'),
+(51, 'xyz@gmail.com'),
+(52, 'xyz@gmail.com'),
+(53, 'xyz@gmail.com'),
+(54, 'xyz@gmail.com'),
+(55, 'xyz@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -154,7 +200,10 @@ INSERT INTO `user_login_info` (`username`, `password`, `number`, `email`) VALUES
 ('Sagar', 'hshsbsjsn', 8764864999, 'sagar@gmail.com'),
 ('aman paret', 'aman@123', 9904935123, 'aman@gmail.com'),
 ('sk', 'dkn123', 3432432432, 'denish@gmail.com'),
-('xyz', 'xyz', 8765467987, 'xyz@gmail.com');
+('xyz', 'xyz', 8765467987, 'xyz@gmail.com'),
+('dfgh', 'dfgh', 987654321, 'dfgh@gmail.com'),
+('fgvh', 'fghj', 987654243, 'dkjhfgh@gmail.com'),
+('kjhgfd', 'fgh', 9876543, 'dfgh');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

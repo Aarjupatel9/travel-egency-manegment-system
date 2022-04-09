@@ -92,7 +92,7 @@ function addTable() {
   document.getElementById("route_data").innerHTML = text;
 
   for (var i = 0; i < xjsvar.length; i++) {
-    // console.log(xjsvar[i].available_ticket);
+     console.log(xjsvar[i].available_ticket);
     text =
       "<tr><td>" +
       xjsvar[i].bus_name +

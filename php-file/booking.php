@@ -11,7 +11,6 @@ $text_data = json_decode($str_json);
 
 $bus_number = $text_data->{'bus_number'};
 $tra_date = $text_data->{'tra_date'};
-
 $nosit = $text_data->{'nosit'};
 $t_price = $text_data->{'t_price'};
 $user_email = $text_data->{'user_email'};
