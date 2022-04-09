@@ -8,87 +8,50 @@ function get_bus_info() {
   console.log("enter in js file");
 
   let s_point = document.getElementById("starting_point").value;
+  let destination = document.getElementById("destination").value;
 
-  console.log(s_point);
+  // console.log(s_point);
+  // console.log(destination);
 
-  var xhr = new XMLHttpRequest(); // simplified for clarity
-  xhr.open("GET", "search_bus.php"); // sending as POST
-  xhr.onload = function () {
-    var jsvar = this.response;
-    //console.log(jsvar);
-    xjsvar = JSON.parse(jsvar);
-    console.log(xjsvar);
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      var res_json = JSON.parse(this.responseText);
+
+      xjsvar = res_json;
+
+      console.log(res_json);
+      addTable();
+      
+    }
   };
-  xhr.send();
-  //addTable();
+  xmlhttp.open(
+    "GET",
+    "search_bus.php?s_point=" + s_point + "&destination=" + destination,
+    true
+  );
+  xmlhttp.send();
 }
-// cookies zone
-
-function createCookie(name, value, days) {
-  var expires;
-
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    expires = "; expires=" + date.toGMTString();
-  } else {
-    expires = "";
-  }
-
-  document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
-}
-
-//new work zonw
 
 function addTable() {
-  var myTableDiv = document.getElementById("myDynamicTable");
+  var text =
+    "<tr><td>bus</td><td>source</td><td>destination</td><td>time</td></tr>";
 
-  var table = document.createElement("TABLE");
-  table.border = "1";
-
-  var tableBody = document.createElement("TBODY");
-  table.appendChild(tableBody);
+  document.getElementById("route_data").innerHTML = text;
 
   for (var i = 0; i < xjsvar.length; i++) {
-    var tr = document.createElement("TR");
-    tableBody.appendChild(tr);
+    text =
+      "<tr><td>" +
+      xjsvar[i].bus_name +
+      "</td><td>" +
+      xjsvar[i].source +
+      "</td><td>" +
+      xjsvar[i].destination +
+      "</td><td>" +
+      xjsvar[i].pickup_time +
+      "</td></tr>";
 
-    for (var j = 0; j < 1; j++) {
-      var td = document.createElement("TD");
-      td.width = "";
-      td.appendChild(document.createTextNode(xjsvar[i].bus_number));
-      tr.appendChild(td);
-
-      var td = document.createElement("TD");
-      // td.margin = "20";
-      td.width = "75";
-      td.appendChild(document.createTextNode(xjsvar[i].capacity));
-      tr.appendChild(td);
-
-      var td = document.createElement("TD");
-      td.width = "75";
-      td.appendChild(document.createTextNode(xjsvar[i].ac));
-      tr.appendChild(td);
-
-      var td = document.createElement("TD");
-      td.width = "75";
-      td.appendChild(document.createTextNode(xjsvar[i].sleeper));
-      tr.appendChild(td);
-    }
+    document.getElementById("route_data").innerHTML += text;
   }
-  myTableDiv.appendChild(table);
-}
-
-function addRow() {
-  var myName = document.getElementById("name");
-  var age = document.getElementById("age");
-  var table = document.getElementById("myTableData");
-
-  var rowCount = table.rows.length;
-  var row = table.insertRow(rowCount);
-
-  row.insertCell(0).innerHTML =
-    '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
-  row.insertCell(1).innerHTML = myName.value;
-  row.insertCell(2).innerHTML = age.value;
 }

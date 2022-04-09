@@ -9,6 +9,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
 
+    echo $email;
+
     $crp = crypt($password, "st");
     // echo $crp;
     //echo $username;  // +  " " + $password + " " + $ema + " " + $phone + "<br>";
@@ -47,7 +49,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         } else {
             echo "Someone already registers using this email.";
             // include_once('\bt/register.html');
-            
             // header('register.html');
             
             
