@@ -32,6 +32,7 @@ window.onload = function () {
   document.getElementById("total_price").value = price_per_ticket_1;
   console.log(data.price_per_ticket_1);
 
+  // for fetching bus number from database
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
