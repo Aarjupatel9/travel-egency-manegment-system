@@ -30,8 +30,22 @@ window.onload = function () {
   document.getElementById("price").value = price_per_ticket_1;
   document.getElementById("number_of_sit").value = 1;
   document.getElementById("total_price").value = price_per_ticket_1;
-  console.log(data.price_per_ticket_1);
 
+  // fetching data from local storage of login session
+  let email = sessionStorage.getItem("s_id");
+  console.log(email);
+  // window.alert("normal push notification");//for testing
+  if (email == null) {
+    window.alert("You Have To Log In First To Book Ticket..");
+
+    var url = "../html-file/login.html";
+
+    document.location.href = url;
+  }
+
+  // console.log(data.price_per_ticket_1);
+
+  // for fe
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -83,10 +97,22 @@ function onbooking() {
     let travel_date =
       d.getDate() + "_" + (d.getMonth() + 1) + "_" + d.getFullYear();
 
-
-
-
-    var booking_data ='{"bus_number":"' + bus_number + '", "tra_date":"' + travel_date + '", "nosit":"' +nosit +'","t_price":"' + t_price + '","departure_time":"' + departure_time + '","user_email":"' +user_email +'","pass":"' +pass + '"}';
+    var booking_data =
+      '{"bus_number":"' +
+      bus_number +
+      '", "tra_date":"' +
+      travel_date +
+      '", "nosit":"' +
+      nosit +
+      '","t_price":"' +
+      t_price +
+      '","departure_time":"' +
+      departure_time +
+      '","user_email":"' +
+      user_email +
+      '","pass":"' +
+      pass +
+      '"}';
     var data_json = JSON.parse(booking_data);
     console.log(data_json);
     console.log("redy for booking");
@@ -94,25 +120,17 @@ function onbooking() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-
         var res = this.responseText;
         //var res_json = JSON.parse(this.responseText);
-        if (res == "1")
-        {
+        if (res == "1") {
           window.alert("ticket booked successfully");
-        }
-        else if (res == "0")
-        {
+        } else if (res == "0") {
           window.alert("This user is not exits ...  please register first");
-        }
-        else if (res == "wrong password")
-        {
+        } else if (res == "wrong password") {
           windows.alert("Wrong Password...");
-        }
-        else {
+        } else {
           console.log("res");
         }
-  
       }
     };
     xmlhttp.open("POST", "../php-file/booking.php", true);
