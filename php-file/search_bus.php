@@ -51,6 +51,7 @@ if ($conn->connect_error) {
                 $select_reserved_number = "SELECT * FROM $table_name";
                 $select_reserved_number_result = $conn->query($select_reserved_number);
                 $route_data[$counter]["reserved_ticket"] = $select_reserved_number_result->num_rows;
+                //echo $select_reserved_number_result->num_rows;
             }
             //table is not present and we will create table 
             else {
@@ -67,7 +68,7 @@ if ($conn->connect_error) {
         //send data to html page
         echo json_encode($route_data);
     } else {
-        echo "this route is not available";
+        echo "0";
     }
 
     $conn->close();

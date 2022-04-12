@@ -62,12 +62,17 @@ function get_bus_info() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
-      var res_json = JSON.parse(this.responseText);
-      
-      xjsvar = res_json;
-      console.log(res_json);
-      addTable();
+      var res = this.responseText;
+      console.log(res);
+      if (res == "0") {
+        window.alert("this route is not available");
+      }
+      else {
+        var res_json = JSON.parse(res);
+        xjsvar = res_json;
+        console.log(res_json);
+        addTable();
+      }
     }
   };
   xmlhttp.open(
@@ -92,7 +97,7 @@ function addTable() {
   document.getElementById("route_data").innerHTML = text;
 
   for (var i = 0; i < xjsvar.length; i++) {
-     console.log(xjsvar[i].available_ticket);
+     //console.log(xjsvar[i].available_ticket);
     text =
       "<tr><td>" +
       xjsvar[i].bus_name +
