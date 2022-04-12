@@ -3,8 +3,8 @@
 $ini = parse_ini_file('../../conf/config.ini');
 
 //data from html page
-$s_point = $_GET["s_point"];
-$destination = $_GET["destination"];
+$s_point = trim($_GET["s_point"]);
+$destination = trim($_GET["destination"]);
 $t_date = $_GET["date"];
 
 //array initialization

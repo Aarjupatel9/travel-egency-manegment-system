@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- local JavaScript file -->
     <script src="../js-file/booking.js"></script>
-    <script src="../js-file/main.js"></script>
+    <!-- <script src="../js-file/main.js"></script> -->
     <script src="../js-file/login.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css-file/main.css">
@@ -73,11 +73,16 @@
                             <a style="color: black;" class="nav-link active" href="../html-file/register.html">Sign
                                 In</a>
                         </li>
-                        <li class="nav-item mx-2">
-                            <a style="color: black;" class="nav-link active" onclick="logout()">Log Out</a>
-                        </li>
+                        
 
                     </ul>
+                </div>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img id="user_image"  width="10px" height="10px" src="../image/ser.ico" style="position:relative;top: 0px">
+                        <!--{% static " series/images/logo.png"%}-->
+                    </a>
+                
                 </div>
             </div>
         </nav>
@@ -147,7 +152,7 @@
 
                     <div class="mb-3" name="user_email">
                         <label for="exampleInputPassword1" class="form-label">User Email Id</label>
-                        <input type="text" name="user_email" class="form-control" id="user_email" >
+                        <input type="text" name="user_email" class="form-control" id="user_email" readonly >
                     </div>
                     
                     <!-- <div class="mb-3" name="pass">

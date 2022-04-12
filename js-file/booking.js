@@ -4,6 +4,16 @@ var xjsvar;
 var departure_time;
 
 window.onload = function () {
+  //to set user icon
+  var l_or_not = sessionStorage.getItem("s_id");
+  if (l_or_not === null) {
+    document.getElementById("user_image").src = "../image/ser.ico";
+  } else {
+    document.getElementById("user_image").src = "../image/user_icon2.png";
+  }
+
+  /// ferther stuff
+
   var url = document.location.href,
     params = url.split("?")[1].split("&"),
     data = {},
@@ -33,7 +43,7 @@ window.onload = function () {
 
   // fetching data from local storage of login session
   let email = sessionStorage.getItem("s_id");
-  console.log(email);
+  // console.log(email);
   // window.alert("normal push notification");//for testing
   if (email == null) {
     window.alert("You Have To Log In First To Book Ticket..");
@@ -41,6 +51,8 @@ window.onload = function () {
     var url = "../html-file/login.html";
 
     document.location.href = url;
+  } else {
+    document.getElementById("user_email").value = email;
   }
 
   // console.log(data.price_per_ticket_1);
@@ -76,6 +88,11 @@ window.onload = function () {
 
 function onbooking() {
   var nofsit = document.getElementById("number_of_sit").value;
+
+  if (available_ticket == 0) {
+    window.alert("this bus is full... you can't book ticket for this bus..");
+    return;
+  }
   if (nofsit == "") {
     window.alert("enter number of ticket for book");
     return;
@@ -90,7 +107,7 @@ function onbooking() {
     var nosit = document.getElementById("number_of_sit").value;
     var t_price = document.getElementById("total_price").value;
     var user_email = document.getElementById("user_email").value;
-    var pass = document.getElementById("pass").value;
+    // var pass = document.getElementById("pass").value;
 
     let d = new Date(tra_date);
     //date validation for database sutability
@@ -110,9 +127,7 @@ function onbooking() {
       departure_time +
       '","user_email":"' +
       user_email +
-      '","pass":"' +
-      pass +
-      '"}';
+      '"}'; //+'","pass":"' + pass;
     var data_json = JSON.parse(booking_data);
     console.log(data_json);
     console.log("redy for booking");
