@@ -79,7 +79,7 @@ function log() {
         window.alert("You are already loged in.........!!!!!!!!!!!!");
       } else if (res == "2") {
         window.alert(
-          "there is no account with this email id...you have to sign in first.. thank you!!"
+          "there is no account with this email id...you have to register first.. thank you!!"
         );
       } else {
         console.log(res);
