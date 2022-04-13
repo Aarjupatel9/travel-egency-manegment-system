@@ -116,7 +116,7 @@ function addTable() {
       (i + 1) +
       ")" +
       ">" +
-      "Book Ticket" +
+      "Book" +
       "</td></tr>";
 
     document.getElementById("route_data").innerHTML += text;
