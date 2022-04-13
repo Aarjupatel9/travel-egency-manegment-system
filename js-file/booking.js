@@ -41,23 +41,7 @@ window.onload = function () {
   document.getElementById("number_of_sit").value = 1;
   document.getElementById("total_price").value = price_per_ticket_1;
 
-  // fetching data from local storage of login session
-  let email = sessionStorage.getItem("s_id");
-  // console.log(email);
-  // window.alert("normal push notification");//for testing
-  if (email == null) {
-    window.alert("You Have To Log In First To Book Ticket..");
-
-    var url = "../html-file/login.html";
-
-    document.location.href = url;
-  } else {
-    document.getElementById("user_email").value = email;
-  }
-
-  // console.log(data.price_per_ticket_1);
-
-  // for fe
+  // for fetching bus number from database
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
