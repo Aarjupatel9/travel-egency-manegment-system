@@ -4,18 +4,21 @@ function callhome() {
 
 var xjsvar;
 
-function add_bus() {
+function add_route() {
   console.log("enter in js file");
 
-  var bus_number = document.getElementById("bus_namber").value;
+  var bus_number = document.getElementById("bus_number").value;
   var starting_point = document.getElementById("starting_point").value;
   var destination = document.getElementById("destination").value;
   var departure_time = document.getElementById("departure_time").value;
+  var daily_ser = document.getElementById("daily_ser").value;
+  var price = document.getElementById("price").value;
 
   if (
     bus_number == "" ||
     starting_point == "" ||
     destination == "" ||
+    daily_ser == "" ||
     departure_time == ""
   ) {
     window.alert("please enter full details");
@@ -31,6 +34,10 @@ function add_bus() {
     destination +
     '", "departure_time":"' +
     departure_time +
+    '", "daily_ser":"' +
+    daily_ser +
+    '", "price":"' +
+    price +
     '"}';
 
   // console.log(text);
@@ -44,11 +51,11 @@ function add_bus() {
   request.onload = function () {
     var res = this.response;
     if (res == "1") {
-      window.alert("Bus info is added successfullly..");
+      window.alert("route info is added successfullly..");
     }
     else if (res == "0")
     {
-      window.alert("already this bus is exits");
+      window.alert("already this route is exits");
     }
     else {
       console.log(res);
