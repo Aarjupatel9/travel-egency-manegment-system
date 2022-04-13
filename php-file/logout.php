@@ -25,3 +25,6 @@ else{
 if (isset($_SESSION[$s_id])) {
     echo "0";
 }
+
+session_unset();
+session_destroy();
