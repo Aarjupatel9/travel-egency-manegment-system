@@ -1,3 +1,4 @@
+
 function callhome() {
   window.location.href = "admin.html";
 }
@@ -50,7 +51,8 @@ function get_bus_info() {
 //for display bus information data which fetched from database
 function addTable() {
   var text =
-    "<tr><td>bus</td><td>source</td><td>destination</td><td>time</td><td>price pr ticket</td><td>available_ticket</td><td>button</td></tr>";
+    "<tr><td>bus</td><td>source</td><td>destination</td><td>time</td><td>price pr ticket</td><td>available_ticket</td></tr>";
+
 
   document.getElementById("route_data").innerHTML = text;
 
@@ -73,4 +75,5 @@ function addTable() {
 
     document.getElementById("route_data").innerHTML += text;
   }
+
 }

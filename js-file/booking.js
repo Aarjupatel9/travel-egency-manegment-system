@@ -1,3 +1,4 @@
+
 //globle declaration
 var available_ticket;
 var xjsvar;
@@ -6,6 +7,7 @@ var departure_time;
 window.onload = function () {
   //to set user icon
   var l_or_not = sessionStorage.getItem("s_id");
+
   if (l_or_not === null) {
     document.getElementById("user_image").src = "../image/ser.ico";
   } else {
@@ -41,6 +43,10 @@ window.onload = function () {
   document.getElementById("number_of_sit").value = 1;
   document.getElementById("total_price").value = price_per_ticket_1;
 
+  document.getElementById("user_email").value = l_or_not;
+
+
+
   // fetching data from local storage of login session
   let email = sessionStorage.getItem("s_id");
   // console.log(email);
@@ -55,9 +61,6 @@ window.onload = function () {
     document.getElementById("user_email").value = email;
   }
 
-  // console.log(data.price_per_ticket_1);
-
-  // for fe
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -189,3 +192,4 @@ function testJS() {
 
   document.location.href = url;
 }
+
