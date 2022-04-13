@@ -7,16 +7,12 @@ function booking_redirect(index)
   var myTab = document.getElementById("route_data");
 
   var row_data = myTab.rows.item(index).cells;
-
-
-
   var bus_name = row_data.item(0).innerHTML;
   var source = row_data.item(1).innerHTML;
   var destination = row_data.item(2).innerHTML;
   var pickup_time = row_data.item(3).innerHTML;
   var price_per_ticket = row_data.item(4).innerHTML;
   var available_ticket = row_data.item(5).innerHTML;
- 
   // for (var j = 0; j < 1; j++) {
     // //info.innerHTML = info.innerHTML + " " + objCells.item(j).innerHTML;
   //   console.log(row_data.item(j).innerHTML)
