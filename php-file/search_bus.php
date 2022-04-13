@@ -63,6 +63,7 @@ if ($conn->connect_error) {
                 // goto after_add_table;
             }
             $counter++;
+            
         }
 
         //send data to html page

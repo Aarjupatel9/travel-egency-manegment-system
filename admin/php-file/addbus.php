@@ -8,11 +8,11 @@ $json_data = file_get_contents('php://input');
 $str_json = file_get_contents('php://input');
 $text_data = json_decode($str_json);
 
-$bus_name = $text_data->{'bus_name'};
-$bus_number = $text_data->{'bus_number'};
+$bus_name = trim($text_data->{'bus_name'});
+$bus_number = trim($text_data->{'bus_number'});
 $capacity = $text_data->{'capacity'};
-$ac = $text_data->{'ac'};
-$sleeper = $text_data->{'sleeper'};
+$ac = trim($text_data->{'ac'});
+$sleeper = trim($text_data->{'sleeper'});
 
 
 $conn = new mysqli($ini['host'], $ini['dbUsername'], $ini['dbPassword'], $ini['dbName']);
