@@ -1,9 +1,14 @@
 function regi() {
   var user_email = document.getElementById("user_email").value;
   var pass = document.getElementById("pass").value;
+  var re_pass = document.getElementById("re_pass").value;
   var user_name = document.getElementById("user_name").value;
   var p_number = document.getElementById("p_number").value;
 
+  if (pass != re_pass) {
+    window.alert("Your Password is not same re-type password");
+    return;
+  }
 
   var data =
     '{"user_email":"' +
@@ -24,6 +29,8 @@ function regi() {
       //var res_json = JSON.parse(this.responseText);
       if (res == "New record inserted sucessfully") {
         window.alert("New record inserted sucessfully ");
+        
+
       } else if (res == "0") {
         window.alert("You already register with this email id");
       } else {

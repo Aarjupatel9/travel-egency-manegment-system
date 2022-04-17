@@ -1,14 +1,11 @@
 //for booking window redirect
 var index;
 var uni_date;
-function booking_redirect(index)
-{
+function booking_redirect(index) {
   console.log(index);
   var myTab = document.getElementById("route_data");
 
   var row_data = myTab.rows.item(index).cells;
-
-
 
   var bus_name = row_data.item(0).innerHTML;
   var source = row_data.item(1).innerHTML;
@@ -16,9 +13,9 @@ function booking_redirect(index)
   var pickup_time = row_data.item(3).innerHTML;
   var price_per_ticket = row_data.item(4).innerHTML;
   var available_ticket = row_data.item(5).innerHTML;
- 
+
   // for (var j = 0; j < 1; j++) {
-    // //info.innerHTML = info.innerHTML + " " + objCells.item(j).innerHTML;
+  // //info.innerHTML = info.innerHTML + " " + objCells.item(j).innerHTML;
   //   console.log(row_data.item(j).innerHTML)
   // }
 
@@ -43,15 +40,11 @@ function booking_redirect(index)
     encodeURIComponent(price_per_ticket);
 
   document.location.href = url;
-  
 }
-
-
 
 //for bus information from database
 var xjsvar;
 function get_bus_info() {
-
   uni_date = document.getElementById("travelling_date").value;
   console.log("enter in js file");
 
@@ -59,7 +52,8 @@ function get_bus_info() {
   let destination = document.getElementById("destination").value;
   let d = new Date(document.getElementById("travelling_date").value);
   //date validation for database sutability
-  let travelling_date = d.getDate() + "_" + (d.getMonth()+1) + "_" + d.getFullYear();
+  let travelling_date =
+    d.getDate() + "_" + (d.getMonth() + 1) + "_" + d.getFullYear();
 
   console.log(uni_date);
 
@@ -70,8 +64,7 @@ function get_bus_info() {
       console.log(res);
       if (res == "0") {
         window.alert("this route is not available");
-      }
-      else {
+      } else {
         var res_json = JSON.parse(res);
         xjsvar = res_json;
         console.log(res_json);
@@ -92,7 +85,6 @@ function get_bus_info() {
   xmlhttp.send();
 }
 
-
 //for display bus information data which fetched from database
 function addTable() {
   var text =
@@ -101,7 +93,7 @@ function addTable() {
   document.getElementById("route_data").innerHTML = text;
 
   for (var i = 0; i < xjsvar.length; i++) {
-     //console.log(xjsvar[i].available_ticket);
+    //console.log(xjsvar[i].available_ticket);
     text =
       "<tr><td>" +
       xjsvar[i].bus_name +
@@ -118,9 +110,9 @@ function addTable() {
       "</td><td onclick=" +
       "booking_redirect(" +
       (i + 1) +
-      ")" +
-      ">" +
-      "Book Ticket" +
+      ")><button type=" +
+      "button" +
+      "> Book </button>" +
       "</td></tr>";
 
     document.getElementById("route_data").innerHTML += text;
