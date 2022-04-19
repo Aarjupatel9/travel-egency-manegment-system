@@ -5,6 +5,11 @@ function logout() {
       var res = this.responseText;
       //var res_json = JSON.parse(this.responseText);
       if (res == "1") {
+        sessionStorage.removeItem("s_id");
+        console.log(
+          "after logout successfull : " + sessionStorage.getItem("s_id")
+        );
+        document.getElementById("user_image").src = "image/ser.ico";
         window.alert("log out succsessfull........");
       } else if (res == "0") {
         window.alert("log out unsucsees......");
@@ -18,9 +23,7 @@ function logout() {
 
   // fetch local session data
   var session_id = sessionStorage.getItem("s_id");
-
   console.log(session_id);
-
   var session_date = '{"s_id" : "' + session_id + '"}';
   xmlhttp.open("POST", "php-file/logout.php", true);
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

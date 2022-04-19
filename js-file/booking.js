@@ -31,9 +31,13 @@ window.onload = function () {
   available_ticket = data.available_ticket;
   var travelling_date = data.t_date;
   var price_per_ticket_1 = data.price;
-  departure_time = data.pickup_time;
+  departure_time = decodeURIComponent(data.pickup_time);
 
+  console.log("in booking onload : " + departure_time);
+  
+  
   let d = new Date(travelling_date);
+  
   document.getElementById("starting_point").value = source;
   document.getElementById("destination").value = destination;
   document.getElementById("travelling_date").value = travelling_date;
@@ -41,6 +45,7 @@ window.onload = function () {
   document.getElementById("price").value = price_per_ticket_1;
   document.getElementById("number_of_sit").value = 1;
   document.getElementById("total_price").value = price_per_ticket_1;
+  document.getElementById("departure_time").value = departure_time;
 
   document.getElementById("user_email").value = l_or_not;
 
@@ -112,6 +117,8 @@ function onbooking() {
     var nosit = document.getElementById("number_of_sit").value;
     var t_price = document.getElementById("total_price").value;
     var user_email = document.getElementById("user_email").value;
+    var destination = document.getElementById("destination").value;
+    var source = document.getElementById("starting_point").value;
     // var pass = document.getElementById("pass").value;
 
     let d = new Date(tra_date);
@@ -132,6 +139,10 @@ function onbooking() {
       departure_time +
       '","user_email":"' +
       user_email +
+      '","destination":"' +
+      destination +
+      '","source":"' +
+      source +
       '"}'; //+'","pass":"' + pass;
     var data_json = JSON.parse(booking_data);
     console.log(data_json);
@@ -143,7 +154,7 @@ function onbooking() {
         var res = this.responseText;
         //var res_json = JSON.parse(this.responseText);
         if (res == "1") {
-          window.alert("ticket booked successfully");
+          window.alert("ticket booked successfully...   Email reciept is genarated and sent to you  If you not Get Email receipt Than contact us");
         } else if (res == "0") {
           window.alert("This user is not exits ...  please register first");
         } else if (res == "wrong password") {

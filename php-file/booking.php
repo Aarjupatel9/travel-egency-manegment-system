@@ -14,8 +14,10 @@ $tra_date = $text_data->{'tra_date'};
 $nosit = $text_data->{'nosit'};
 $t_price = $text_data->{'t_price'};
 $user_email = $text_data->{'user_email'};
-// $pass = $text_data->{'pass'};
 $departure_time = $text_data->{'departure_time'};
+$destination = $text_data->{'destination'};
+$source = $text_data->{'source'};
+// $pass = $text_data->{'pass'};
 
 //array initialization
 //echo $user_email;
@@ -54,7 +56,10 @@ if ($conn->connect_error) {
             $stmt->bind_param("is", $i, $user_email);
             $stmt->execute();
         }
+        
         echo "1";
+        $command = escapeshellcmd('python booking_email_genrater.py '.$user_email.' '.$bus_number.' '.$tra_date.' '.$nosit.' '.$t_price.' '.$departure_time.' '.$source.' '.$destination);
+        $output = shell_exec($command);
         
     } else {
         //user not exits
