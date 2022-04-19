@@ -6,6 +6,7 @@ var departure_time;
 window.onload = function () {
   //to set user icon
   var l_or_not = sessionStorage.getItem("s_id");
+
   if (l_or_not === null) {
     document.getElementById("user_image").src = "../image/ser.ico";
   } else {
@@ -41,6 +42,8 @@ window.onload = function () {
   document.getElementById("number_of_sit").value = 1;
   document.getElementById("total_price").value = price_per_ticket_1;
 
+  document.getElementById("user_email").value = l_or_not;
+
   // fetching data from local storage of login session
   let email = sessionStorage.getItem("s_id");
   // console.log(email);
@@ -49,15 +52,11 @@ window.onload = function () {
     window.alert("You Have To Log In First To Book Ticket..");
 
     var url = "../html-file/login.html";
-
     document.location.href = url;
   } else {
     document.getElementById("user_email").value = email;
   }
 
-  // console.log(data.price_per_ticket_1);
-
-  // for fe
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -88,7 +87,11 @@ window.onload = function () {
 
 function onbooking() {
   var nofsit = document.getElementById("number_of_sit").value;
-
+  var password = document.getElementById("pass").value;
+  if (password == "") {
+    window.alert("enter the password");
+    return;
+  }
   if (available_ticket == 0) {
     window.alert("this bus is full... you can't book ticket for this bus..");
     return;
@@ -97,6 +100,8 @@ function onbooking() {
     window.alert("enter number of ticket for book");
     return;
   } else if (nofsit > available_ticket) {
+    console.log(nofsit);
+    console.log(available_ticket);
     window.alert("only  " + available_ticket + "  ticket is available");
     return;
   } else {

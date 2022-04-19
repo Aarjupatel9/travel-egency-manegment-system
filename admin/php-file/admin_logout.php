@@ -5,7 +5,7 @@ $str_json = file_get_contents('php://input');
 $text_data = json_decode($str_json);
 
 // echo $str_json;
-$s_id = $text_data->{'s_id'};
+$s_id = $text_data->{'a_s_id'};
 
 session_start();
 // echo $s_id;
