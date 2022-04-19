@@ -21,7 +21,7 @@ app_password = 'xoimzzzmfthqkugx'  # a token for gmail
 
 # email sending to user
 content = ['<h4>hii ' + email_id + ' <br><br> Your Booking For Trip <br><b>From : '
-           + destination+' To : '+source + '<br> On :  '+tra_date+' <br> Departuter Time : ' +
+           + source+' To : '+destination + '<br> On :  '+tra_date+' <br> Departuter Time : ' +
            dep_time + ' </b>  is <u>succesfully </u> Done. <br><br> you booked <b><u><i> '
            + noofsit+' </b></u></i> Ticket  of Price <b><u>' +
            price+'</b></u> for the Trip. <br><br> Bus Number For The Trip is : '+bus_number+' </h1>']

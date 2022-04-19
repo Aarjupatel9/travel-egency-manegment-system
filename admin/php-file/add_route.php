@@ -41,22 +41,33 @@ if ($conn->connect_error) {
                     "ac" => $row["ac"]
                 );
             }
-        }
+            $capacity_bus = $bus_data[0]["capacity"];
+            $bus_name = $bus_data[0]["bus_name"];
+            // $Insert = "INSERT INTO route_info(bus_number, destination, source, pickup_time, daily_ser, bus_name, capacity , price) VALUES ($bus_number , $destination , $starting_point ,$departure_time , $daily_ser , $bus_name , $capacity_bus, $price)";
+            $Insert = "INSERT INTO route_info(bus_number, destination, source, pickup_time, daily_ser, bus_name, capacity , price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        $capacity_bus = $bus_data[0]["capacity"];
-        $Insert = "INSERT INTO `route_info`(`bus_number`, `destination`, `source`, `pickup_time`, `daily_ser`, `bus_name`, `capacity`, `price`) VALUES ($bus_number,$destination,$starting_point," . "9:00:00" . ",$daily_ser, $capacity_bus, $price)";
+            //$Insert = "INSERT INTO bus_info(bus_number, capacity, ac,sleeper, bus_name) values(?, ?, ?, ?, ?)";
 
-        $in_result = $conn->query($Insert);
-        if($in_result)
-        {
-            echo "1";
+            $stmt = $conn->prepare($Insert);
+            $stmt->bind_param("ssssssss", $bus_number, $destination, $starting_point, $departure_time, $daily_ser ,$bus_name ,$capacity_bus , $price);
+            if ($stmt->execute()) {
+                echo "1";
+            } else {
+
+                echo "2";
+            }
         }
+            
+        //     $in_result = $conn->query($Insert);
+        //     if ($in_result) {
+        //         echo "1";
+        //     } else {
+        //         echo "2";
+        //     }
+        // }
         else{
-            echo "2";
+            echo "3";
         }
-        
     }
-
-    $stmt->close();
     $conn->close();
 }

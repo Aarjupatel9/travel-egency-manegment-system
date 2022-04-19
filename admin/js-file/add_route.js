@@ -14,6 +14,9 @@ function add_route() {
   var daily_ser = document.getElementById("daily_ser").value;
   var price = document.getElementById("price").value;
 
+  console.log(departure_time);
+  pt = departure_time + ":00";
+  console.log(pt);
   if (
     bus_number == "" ||
     starting_point == "" ||
@@ -53,11 +56,13 @@ function add_route() {
     if (res == "1") {
       window.alert("route info is added successfullly..");
     }
-    else if (res == "0")
-    {
+    else if (res == "0") {
       window.alert("already this route is exits");
-    }
-    else {
+    } else if (res == "3") {
+      window.alert("This bus number is not for our agency's bus");
+    } else if (res == "2") {
+      window.alert("some error");
+    } else {
       console.log(res);
     }
     

@@ -16,7 +16,7 @@ function booking_redirect(index) {
   console.log("in search bus redirect func : " + pickup_time);
 
   console.log(price_per_ticket);
-  alert("see consol");
+  // alert("see consol");
   url =
     "../html-file/booking.html?bus_name=" +
     encodeURIComponent(bus_name) +

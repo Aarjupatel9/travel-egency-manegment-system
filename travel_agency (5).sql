@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2022 at 09:41 PM
+-- Generation Time: Apr 19, 2022 at 06:59 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -93,7 +93,41 @@ CREATE TABLE `route_info` (
 INSERT INTO `route_info` (`bus_number`, `destination`, `source`, `pickup_time`, `daily_ser`, `bus_name`, `capacity`, `price`) VALUES
 ('gj_10_as_1111', 'bhanvad', 'anand', '20:30:00', 'y', 'tulsi', 55, 500),
 ('gj_10_as_1112', 'anand', 'bhanvad', '22:30:00', 'y', 'tulsi', 55, 500),
-('gj_10_as_2223', 'anand', 'bhanvad', '06:45:00', 'y', 'shital', 56, 600);
+('gj_10_as_2223', 'anand', 'bhanvad', '06:45:00', 'y', 'shital', 56, 600),
+('gj_1_an_1236', 'rajkot', 'jamnagar', '07:00:00', 'y', 'eagle', 50, 100),
+('gj_1_an_1237', 'rajkot', 'dwarka', '08:30:00', 'y', 'dwarka', 50, 250);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ticket_4_5_2022_gj_1_an_1236`
+--
+
+CREATE TABLE `ticket_4_5_2022_gj_1_an_1236` (
+  `sit_number` bigint(20) NOT NULL,
+  `user_email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ticket_5_5_2022_gj_1_an_1237`
+--
+
+CREATE TABLE `ticket_5_5_2022_gj_1_an_1237` (
+  `sit_number` bigint(20) NOT NULL,
+  `user_email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ticket_5_5_2022_gj_1_an_1237`
+--
+
+INSERT INTO `ticket_5_5_2022_gj_1_an_1237` (`sit_number`, `user_email`) VALUES
+(1, 'aarjupatel922003@gmail.com'),
+(2, 'aarjupatel922003@gmail.com'),
+(3, 'aarjupatel922003@gmail.com'),
+(4, 'aarjupatel922003@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -385,6 +419,37 @@ INSERT INTO `ticket_22_4_2022_gj_10_as_2223` (`sit_number`, `user_email`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ticket_25_2_2022_gj_10_as_1112`
+--
+
+CREATE TABLE `ticket_25_2_2022_gj_10_as_1112` (
+  `sit_number` bigint(20) NOT NULL,
+  `user_email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ticket_25_2_2022_gj_10_as_2223`
+--
+
+CREATE TABLE `ticket_25_2_2022_gj_10_as_2223` (
+  `sit_number` bigint(20) NOT NULL,
+  `user_email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ticket_25_2_2022_gj_10_as_2223`
+--
+
+INSERT INTO `ticket_25_2_2022_gj_10_as_2223` (`sit_number`, `user_email`) VALUES
+(1, 'aarjupatel922003@gmail.com'),
+(2, 'aarjupatel922003@gmail.com'),
+(3, 'aarjupatel922003@gmail.com');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ticket_25_4_2022_gj_10_as_1112`
 --
 
@@ -420,6 +485,33 @@ CREATE TABLE `ticket_25_4_2022_gj_10_as_2223` (
   `user_email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ticket_25_4_2022_gj_10_as_2223`
+--
+
+INSERT INTO `ticket_25_4_2022_gj_10_as_2223` (`sit_number`, `user_email`) VALUES
+(1, 'aarjupatel922003@gmail.com'),
+(2, 'aarjupatel922003@gmail.com'),
+(3, 'aarjupatel922003@gmail.com'),
+(4, 'aarjupatel922003@gmail.com'),
+(5, 'aarjupatel922003@gmail.com'),
+(6, 'aarjupatel922003@gmail.com'),
+(7, 'aarjupatel922003@gmail.com'),
+(8, 'aarjupatel922003@gmail.com'),
+(9, 'aarjupatel922003@gmail.com'),
+(10, 'aarjupatel922003@gmail.com'),
+(11, 'aarjupatel922003@gmail.com'),
+(12, 'aarjupatel922003@gmail.com'),
+(13, 'aarjupatel922003@gmail.com'),
+(14, 'aarjupatel922003@gmail.com'),
+(15, 'aarjupatel922003@gmail.com'),
+(16, 'aarjupatel922003@gmail.com'),
+(17, 'aarjupatel922003@gmail.com'),
+(18, 'aarjupatel922003@gmail.com'),
+(19, 'aarjupatel922003@gmail.com'),
+(20, 'aarjupatel922003@gmail.com'),
+(21, 'aarjupatel922003@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -440,7 +532,9 @@ INSERT INTO `ticket_28_4_2022_gj_10_as_1111` (`sit_number`, `user_email`) VALUES
 (2, 'aman@gmail.com'),
 (3, 'aman@gmail.com'),
 (4, 'aman@gmail.com'),
-(5, 'aman@gmail.com');
+(5, 'aman@gmail.com'),
+(6, 'aarjupatel922003@gmail.com'),
+(7, 'aarjupatel922003@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -517,7 +611,12 @@ INSERT INTO `user_login_info` (`username`, `password`, `number`, `email`) VALUES
 ('dfgh', 'dfgh', 987654321, 'dfgh@gmail.com'),
 ('fgvh', 'fghj', 987654243, 'dkjhfgh@gmail.com'),
 ('kjhgfd', 'fgh', 9876543, 'dfgh'),
-('abc', 'abc', 12341123412, 'abc@gmail.com');
+('abc', 'abc', 12341123412, 'abc@gmail.com'),
+('sagar', 'sagar', 9876543212, 'sagar2@gmail.com'),
+('ab', 'ab', 9876765432, 'ab@gmail.com'),
+('Aarjupatel9', 'aarju@123', 6353884460, 'wwwaarjubodaaarjuboda@gmail.com'),
+('sagarnanera', 'sagar@123', 1234567890, 'sagarnanera30@gmail.com'),
+('aman', 'aman', 987654323, 'aarjupatel922003@gmail.com');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
