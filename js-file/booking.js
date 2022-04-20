@@ -110,6 +110,14 @@ function onbooking() {
     window.alert("only  " + available_ticket + "  ticket is available");
     return;
   } else {
+
+    
+    document.getElementById("booking_btn").disabled = true;
+    window.alert("Process is Being Running , Please wait..... You can close pop up");
+      setTimeout(function () {
+        document.getElementById("booking_btn").disabled = false;
+      }, 5000);
+
     //getting data from html page for booking
 
     var bus_number = document.getElementById("bus_number").value;
@@ -154,7 +162,8 @@ function onbooking() {
         var res = this.responseText;
         //var res_json = JSON.parse(this.responseText);
         if (res == "1") {
-          window.alert("ticket booked successfully...   Email reciept is genarated and sent to you  If you not Get Email receipt Than contact us");
+          window.alert("ticket booked successfully...   Email reciept is genarated and sent to you  If you not Get Email receipt Than contact us","Thank you for booking - Have a best trip");
+          document.location.reload(true);
         } else if (res == "0") {
           window.alert("This user is not exits ...  please register first");
         } else if (res == "wrong password") {

@@ -27,7 +27,7 @@ content = ['<h4>hii ' + email_id + ' <br><br> Your Booking For Trip <br><b>From 
            price+'</b></u> for the Trip. <br><br> Bus Number For The Trip is : '+bus_number+' </h1>']
 
 
-subject = 'Regiatration In Travel-With-Us'
+subject = 'Booking in Travel-With-Us'
 with yagmail.SMTP(user, app_password) as yag:
     yag.send(email_id, subject, content)
     print('Sent email successfully')

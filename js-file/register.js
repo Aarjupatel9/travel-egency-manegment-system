@@ -48,6 +48,7 @@ function regi() {
       //var res_json = JSON.parse(this.responseText);
       if (res == "1") {
         window.alert("New record inserted sucessfully");
+        document.location.reload(true);
       } else if (res == "0") {
         window.alert("You already register with this email id");
       } else {
@@ -57,5 +58,5 @@ function regi() {
   };
   xmlhttp.open("POST", "../php-file/register.php", true);
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  // xmlhttp.send(data);
+  xmlhttp.send(data);
 }
