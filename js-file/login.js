@@ -1,7 +1,6 @@
 var session_id;
 var session_data;
 
-
 function logout() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
@@ -9,18 +8,13 @@ function logout() {
       var res = this.responseText;
 
       if (res == "1") {
-
-
         sessionStorage.removeItem("s_id");
-        // localStorage.removeItem("s_id");
         session_id = "";
         session_data = "";
-        console.log(sessionStorage.getItem("s_id"));
-
-
+        console.log("after logout successfull : " + sessionStorage.getItem("s_id"));
+        document.getElementById("user_image").src = "../image/ser.ico";
         window.alert("log out succsessfull........");
 
-        
       } else if (res == "0") {
         window.alert("log out unsucsees......");
       } else if (res == "5") {
@@ -36,7 +30,7 @@ function logout() {
   session_id = sessionStorage.getItem("s_id");
   console.log(session_id);
 
-   session_data = '{"s_id" : "' + session_id + '"}'; // data which will pass to logout.php file
+  session_data = '{"s_id" : "' + session_id + '"}'; // data which will pass to logout.php file
 
   xmlhttp.open("POST", "../php-file/logout.php", true);
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -63,7 +57,9 @@ function log() {
       var res = this.responseText;
 
       if (res == "1") {
-        console.log(session_id);
+        console.log("pass");
+        // console.log(session_id);
+        // console.log(sessionStorage.getItem("s_id"));
 
         //store session id locally
         sessionStorage.setItem("s_id", user_email);
@@ -71,7 +67,7 @@ function log() {
         console.log(sessionStorage.getItem("s_id"));
 
         window.alert("sucessfully loged in .... enjoy!!!! ");
-        url = "../index.html?id=1";
+        url = "../index.html";
         document.location.href = url;
       } else if (res == "0") {
         window.alert("Wrong Password try again");

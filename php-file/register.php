@@ -35,7 +35,13 @@ if ($conn->connect_error) {
         $stmt = $conn->prepare($Insert);
         $stmt->bind_param("sssi", $username, $password, $email, $phone);
         if ($stmt->execute()) {
-            echo "New record inserted sucessfully";
+            echo "1";
+            
+            $command = escapeshellcmd('python register_email_genrater.py ' . $email .' '.$username);
+            // "> /dev/null 2>/dev/null &"
+            // shell_exec($command.' > /dev/null 2>/dev/null &');
+            $output = shell_exec($command);
+            
         } else {
             echo $stmt->error;
         }

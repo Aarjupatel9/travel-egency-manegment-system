@@ -13,16 +13,10 @@ function booking_redirect(index) {
   var pickup_time = row_data.item(3).innerHTML;
   var price_per_ticket = row_data.item(4).innerHTML;
   var available_ticket = row_data.item(5).innerHTML;
-
-  // for (var j = 0; j < 1; j++) {
-  // //info.innerHTML = info.innerHTML + " " + objCells.item(j).innerHTML;
-  //   console.log(row_data.item(j).innerHTML)
-  // }
-
-  //var b = document.getElementById("name").value,
+  console.log("in search bus redirect func : " + pickup_time);
 
   console.log(price_per_ticket);
-
+  // alert("see consol");
   url =
     "../html-file/booking.html?bus_name=" +
     encodeURIComponent(bus_name) +
@@ -110,11 +104,11 @@ function addTable() {
       "</td><td onclick=" +
       "booking_redirect(" +
       (i + 1) +
-      ")><button type=" +
-      "button" +
-      "> Book </button>" +
+      ")><button class= &#34 btn btn-primary &#34 > Book </button>" +
       "</td></tr>";
 
     document.getElementById("route_data").innerHTML += text;
   }
 }
+
+{/* <button class= &#34 btn btn-primary &#34 > Book </button> */}
