@@ -1,9 +1,28 @@
+function alertFilename()
+{
+  var file_path = document.getElementById("user_pic").value;
+  var file_name = file_path.replace('C:\\fakepath\\', ' ');
+  // alert(thefile.value);
+  // console.log(file_name);
+  return file_name;
+}
+
+
 function regi() {
   var user_email = document.getElementById("user_email").value;
   var pass = document.getElementById("pass").value;
   var re_pass = document.getElementById("re_pass").value;
   var user_name = document.getElementById("user_name").value;
   var p_number = document.getElementById("p_number").value;
+  var image_name = alertFilename();
+  // console.log(image_name);
+  
+
+
+
+
+  // console.log(user_profile);
+
 
   if (user_name == "") {
     window.alert("User Name can not be Empty");
@@ -38,7 +57,12 @@ function regi() {
     user_name +
     '", "p_number":"' +
     p_number +
+    '", "user_profile":"' +
+    image_name +
     '"}';
+  
+  
+  console.log(data);
   var data_json = JSON.parse(data);
 
   var xmlhttp = new XMLHttpRequest();

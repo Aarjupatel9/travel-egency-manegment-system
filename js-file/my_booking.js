@@ -7,6 +7,7 @@ window.onload = function () {
   if (l_or_not === null) {
     //goto login page
     window.alert("You Have To Log In First To show your current Booking..");
+
     var url = "../html-file/login.html";
     document.location.href = url;
   }
