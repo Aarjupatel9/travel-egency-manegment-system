@@ -11,6 +11,9 @@ $email = $text_data->{'user_email'};
 $password = $text_data->{'pass'};
 $username = $text_data->{'user_name'};
 $phone = $text_data->{'p_number'};
+$profile_pic = $text_data->{'user_profile'};
+
+// echo "<p>" . $profile_pic . "</p>" . "<br>";
 
 
 $conn = new mysqli($ini['host'], $ini['dbUsername'], $ini['dbPassword'], $ini['dbName']);
@@ -19,7 +22,7 @@ if ($conn->connect_error) {
     die('Could not connect to the database.');
 } else {
     $Select = "SELECT email FROM user_login_info WHERE email = ? LIMIT 1";
-    $Insert = "INSERT INTO user_login_info(username, password, email, number) values(?, ?, ?, ?)";
+    $Insert = "INSERT INTO user_login_info(username, password, email, number,user_profile) values(?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($Select);
     $stmt->bind_param("s", $email);
@@ -33,7 +36,12 @@ if ($conn->connect_error) {
         $stmt->close();
 
         $stmt = $conn->prepare($Insert);
-        $stmt->bind_param("sssi", $username, $password, $email, $phone);
+        $stmt->bind_param("sssis", $username, $password, $email, $phone, $profile_pic);
+        if (move_uploaded_file($tempname, $folder)) {
+            $msg = "Image uploaded successfully";
+        } else {
+            $msg = "Failed to upload image";
+        }
         if ($stmt->execute()) {
             echo "New record inserted sucessfully";
         } else {
