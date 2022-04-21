@@ -11,6 +11,8 @@ window.onload = function () {
     var url = "../html-file/login.html";
     document.location.href = url;
   }
+  console.log("icon page : " + l_or_not);
+  document.getElementById("user_image").src = "../image/user_icon2.png";
 
   /// request for data
 

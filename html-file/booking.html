@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +69,9 @@
                             <a style="color: black;" class="nav-link active" href="../html-file/login.html">Log In</a>
                         </li>
                         <li class="nav-item mx-2">
+
                             <a style="color: black;" class="nav-link active" href="../html-file/register.html">Sign up</a>
+
                         </li>
 
                     </ul>
@@ -105,12 +106,18 @@
 
                         </div>
                     </div>
-                    <div class="mb-3" name="jsdate">
-                        <label for="exampleInputPassword1" class="form-label">Date Of Traveling</label>
-                        <!-- value="09/02/2003" -->
-
-                        <input type="date" name="jsdate" class="form-control" id="travelling_date" readonly>
+                    <div class="row">
+                        <div class="col mb-3" name="jsdate">
+                            <label for="exampleInputPassword1" class="form-label">Date Of Traveling</label>
+                            <!-- value="09/02/2003" -->
+                            <input type="date" name="jsdate" class="form-control" id="travelling_date" readonly>
+                        </div>
+                        <div class="col mb-3" name="departure_time">
+                            <label for="exampleInputPassword1" class="form-label">Departure Time</label>
+                            <input type="text" name="departure_time" class="form-control" id="departure_time" readonly>
+                        </div>
                     </div>
+
                     <div class="row">
                         <div class="col mb-3" name="bus_name">
                             <label for="exampleInputPassword1" class="form-label">Bus Name </label>
@@ -148,7 +155,7 @@
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" name="pass" class="form-control" id="pass">
                     </div>
-                    <button onclick="onbooking()" type="button" class="btn btn-primary">Submit</button>
+                    <button onclick="onbooking()" type="button" id="booking_btn" class="btn btn-primary">Book Ticket</button>
                 </form>
             </div>
         </main>
@@ -157,7 +164,6 @@
             <div>
                 <p>Copyright &copy; 2022 , All Rights Received</p>
                 <p id="con">Contact us : <a href="mailto:sagarnanera30@gmail.com">sagarnanera30@gmail.com</a> <a
-
                         href="#"> | </a> <a href="mailto:aarjupatel922003@gmail.com">aarjupatel922003@gmail.com</a></p>
             </div>
         </footer>
