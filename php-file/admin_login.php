@@ -30,10 +30,13 @@ if ($conn->connect_error) {
         while ($row = $result->fetch_assoc()) {
 
             if ($password == $row["password"]) {
-                $conn->close();
+               
                 // include '../admin/admin.htm';
                 $_SESSION[$email] = $email;
                 echo "1";
+                $conn->close();
+                exit;
+
             } else {
 
                 echo "0";
@@ -43,5 +46,5 @@ if ($conn->connect_error) {
         //anmid not exits with this email
         echo  "2";
     }
-    // $conn->close();
+   
 }

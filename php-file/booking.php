@@ -58,7 +58,7 @@ if ($conn->connect_error) {
         }
         
         echo "1";
-        $command = escapeshellcmd('python booking_email_genrater.py '.$user_email.' '.$bus_number.' '.$tra_date.' '.$nosit.' '.$t_price.' '.$departure_time.' '.$source.' '.$destination);
+        $command = escapeshellcmd('python booking_email_genrater.py '.$user_email.' '.$bus_number.' '.$tra_date.' '.$nosit.' '.$t_price.' '.$departure_time.' '.$source.' '.$destination . ' > /dev/null 2>/dev/null &');
         $output = shell_exec($command);
         
     } else {
