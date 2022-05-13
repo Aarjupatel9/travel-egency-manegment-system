@@ -13,6 +13,7 @@ function booking_redirect(index) {
   var pickup_time = row_data.item(3).innerHTML;
   var price_per_ticket = row_data.item(4).innerHTML;
   var available_ticket = row_data.item(5).innerHTML;
+
   console.log("in search bus redirect func : " + pickup_time);
 
   console.log(price_per_ticket);
