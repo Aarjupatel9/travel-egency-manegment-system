@@ -19,3 +19,4 @@ subject = 'Regiatration In Travel-With-Us'
 with yagmail.SMTP(user, app_password) as yag:
     yag.send(email_id, subject, content)
     print('Sent email successfully')
+

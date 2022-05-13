@@ -21,12 +21,10 @@ function add_log() {
 
       if (res == "1") {
         console.log(session_id);
-
         //store session id locally
         sessionStorage.setItem("a_s_id", user_email);
         // localStorage.setItem("s_id", user_email);
         console.log(sessionStorage.getItem("a_s_id"));
-
         // window.alert("sucessfully loged in .... enjoy!!!! ");
         url = "../admin/admin.html";
         document.location.href = url;
@@ -34,6 +32,13 @@ function add_log() {
         window.alert("Wrong Password try again");
       } else if (res == "10") {
         window.alert("You are already loged in.........!!!!!!!!!!!!");
+        console.log(session_id);
+        //store session id locally
+        sessionStorage.setItem("a_s_id", user_email);
+        // localStorage.setItem("s_id", user_email);
+        console.log(sessionStorage.getItem("a_s_id"));
+        url = "../admin/admin.html";
+        document.location.href = url;
       } else if (res == "2") {
         window.alert(
           "there is no account with this email id...you have to sign in first.. thank you!!"

@@ -113,10 +113,10 @@ function onbooking() {
 
     
     document.getElementById("booking_btn").disabled = true;
-    window.alert("Process is Being Running , Please wait..... You can close pop up");
+    window.alert("Process is Being Running , Please wait for some time..... You can close pop up");
       setTimeout(function () {
         document.getElementById("booking_btn").disabled = false;
-      }, 5000);
+      }, 10000);
 
     //getting data from html page for booking
 
